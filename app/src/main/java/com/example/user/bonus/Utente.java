@@ -11,6 +11,11 @@ public class Utente implements Serializable {
         this.password = password;
     }
 
+    public Utente () {
+        this.nomeUtente = "";
+        this.password = "";
+    }
+
     public String getNomeUtente () {
         return this.nomeUtente;
     }
