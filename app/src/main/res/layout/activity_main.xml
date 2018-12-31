@@ -66,11 +66,9 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="left"
                 android:layout_marginLeft="10dp"
-                android:autoLink="all"
                 android:text="Nuovo Utente"
-                android:clickable="true"
+                android:autoLink="all"
                 android:linksClickable="true"/>
-
         </LinearLayout>
     </ScrollView>
 

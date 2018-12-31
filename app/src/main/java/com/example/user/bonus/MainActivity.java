@@ -3,9 +3,11 @@ package com.example.user.bonus;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.text.method.LinkMovementMethod;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -13,7 +15,7 @@ public class MainActivity extends AppCompatActivity {
     Button accedi;
     Utente utente;
 
-    public static final String OK_LOGIN = "com.example.user.bonus";
+    public static final String OK_LOGIN = "com.example.user.bonus.Utente";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,7 +30,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 if (checkInput()) {
-                    utente = new Utente(username.toString(), password.toString());
+                    utente = new Utente(username.getText().toString(), password.getText().toString());
                     Intent showResults = new Intent(MainActivity.this, Main2Activity.class);
                     showResults.putExtra(OK_LOGIN, utente);
                     startActivity(showResults);
