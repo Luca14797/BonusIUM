@@ -3,11 +3,9 @@ package com.example.user.bonus;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.text.method.LinkMovementMethod;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -29,7 +27,7 @@ public class MainActivity extends AppCompatActivity {
         accedi.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (checkInput()) {
+                if (checkInput()) {     // Si controlla se l'utente ha compilato tutti i campi
                     utente = new Utente(username.getText().toString(), password.getText().toString());
                     Intent showResults = new Intent(MainActivity.this, Main2Activity.class);
                     showResults.putExtra(OK_LOGIN, utente);
@@ -39,6 +37,10 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
+    /**
+     * Il metodo controlla se l'utente ha inserito il Nome Utente e la Password
+     * @return Restituisce True se l'utente ha compilato tutti i campi, False altrimenti
+     */
     private boolean checkInput() {
         int errors = 0;
 

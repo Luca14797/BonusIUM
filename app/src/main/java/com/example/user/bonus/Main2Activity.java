@@ -23,6 +23,7 @@ public class Main2Activity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main2);
 
+        // Dalla prima Activity vengono recuperati i dati dell'utente
         Intent intent = getIntent();
         Serializable obj = intent.getSerializableExtra(MainActivity.OK_LOGIN);
 
@@ -37,7 +38,7 @@ public class Main2Activity extends AppCompatActivity {
 
         ColorStateList defaultColor = testoLogin.getTextColors();
 
-        if (login()) {
+        if (login()) {      // Si controlla se i dati dell'utente sono corretti
             testoLogin.setTextColor(defaultColor);
             testoLogin.setText("Benvenuto" + " " + utente.getNomeUtente());
         } else {
@@ -55,6 +56,10 @@ public class Main2Activity extends AppCompatActivity {
         });
     }
 
+    /**
+     * Il metodo controlla che il Nome Utente e la Password siano corretti
+     * @return Restituisce True se Nome Utente e Password sono corretti, False altrimenti
+     */
     private boolean login() {
         for (int i=0; i<utenti.length; i++) {
             if (utenti[i].getNomeUtente().equals(utente.getNomeUtente()) && utenti[i].getPassword().equals(utente.getPassword())) {
