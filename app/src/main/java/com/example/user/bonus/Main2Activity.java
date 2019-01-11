@@ -14,9 +14,9 @@ import java.io.Serializable;
 public class Main2Activity extends AppCompatActivity {
 
     Utente utente;
-    Utente[] utenti = {new Utente("Luca","Ciao"), new Utente("Nicola","Miao")};
     TextView testoLogin;
     Button indietro;
+    FactoryUtente factory = FactoryUtente.getInstance();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,7 +38,7 @@ public class Main2Activity extends AppCompatActivity {
 
         ColorStateList defaultColor = testoLogin.getTextColors();
 
-        if (login()) {      // Si controlla se i dati dell'utente sono corretti
+        if (factory.login(utente)) {      // Si controlla se i dati dell'utente sono corretti
             testoLogin.setTextColor(defaultColor);
             testoLogin.setText("Benvenuto" + " " + utente.getNomeUtente());
         } else {
@@ -54,18 +54,5 @@ public class Main2Activity extends AppCompatActivity {
                 startActivity(showResults);
             }
         });
-    }
-
-    /**
-     * Il metodo controlla che il Nome Utente e la Password siano corretti
-     * @return Restituisce True se Nome Utente e Password sono corretti, False altrimenti
-     */
-    private boolean login() {
-        for (int i=0; i<utenti.length; i++) {
-            if (utenti[i].getNomeUtente().equals(utente.getNomeUtente()) && utenti[i].getPassword().equals(utente.getPassword())) {
-                return true;
-            }
-        }
-        return false;
     }
 }
