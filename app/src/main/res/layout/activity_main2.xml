@@ -39,7 +39,9 @@
                 android:id="@+id/indietro"
                 android:layout_gravity="center"
                 android:text="Indietro"/>
+
         </LinearLayout>
+
     </ScrollView>
 
 </android.support.constraint.ConstraintLayout>
